@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
+#include <cassert>
 
 int main(void) {
-	print("Hello there this is a test\n");
 }
