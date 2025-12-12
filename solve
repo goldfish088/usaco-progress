@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+# need to have 'eval "$(direnv hook zsh)"' in ~/.zshrc, otherwise this will not work
+
+if [ -z "$1" ]; then
+echo "Usage: solve <output_folder>"
+return 1
+fi
+
+if [ ! -d "copyme" ]; then
+echo "Error: copyme folder does not exist"
+return 1
+fi
+
+cp -r copyme "$1"
+echo "Copied copyme to $1"
