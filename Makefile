@@ -1,7 +1,8 @@
 PROBLEMS := apple_division \
 	creating_strings \
 	gen_all_subsets \
-	eight_queens
+	eight_queens \
+	milk_pails
 
 all: all_problems
 
