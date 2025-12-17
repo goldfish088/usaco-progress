@@ -4,7 +4,8 @@ PROBLEMS := apple_division \
 	eight_queens \
 	milk_pails \
 	cow_gymnastics \
-	bovine_genomics
+	bovine_genomics \
+	circle_cross
 
 all: all_problems
 
