@@ -5,7 +5,8 @@ PROBLEMS := apple_division \
 	milk_pails \
 	cow_gymnastics \
 	bovine_genomics \
-	circle_cross
+	circle_cross \
+	load_balancing
 
 all: all_problems
 
