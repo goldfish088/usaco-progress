@@ -6,7 +6,8 @@ PROBLEMS := apple_division \
 	cow_gymnastics \
 	bovine_genomics \
 	circle_cross \
-	load_balancing
+	load_balancing \
+	sleeping_in_class
 
 all: all_problems
 
