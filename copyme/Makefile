@@ -1,5 +1,5 @@
 CXX := c++
-CXXFLAGS := -std=c++23
+CXXFLAGS := -O2 -std=c++17 -Wall -Wextra -Wshadow -fsanitize=address -fsanitize=undefined
 
 all: sol.cpp
 	$(CXX) $(CXXFLAGS) sol.cpp -o sol
