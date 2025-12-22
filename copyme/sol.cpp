@@ -1,19 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-static inline void redirect_io(string basename);
+
+// #define IO_BASENAME "TODO"
+static void setio();
 
 int main(void) {
-    redirect_io(".");
+    setio();
 
     
 }
 
-static string suffix_in = ".in";
-static string suffix_out = ".out";
+static inline void setio(void) {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
 
-static inline void redirect_io(string basename) {
-    if (!basename.compare(".")) return;
-    freopen((basename + suffix_in).c_str(), "r", stdin);
-    freopen((basename + suffix_out).c_str(), "w", stdout);
+    #ifdef IO_BASENAME
+        string name = IO_BASENAME;
+        freopen((name + ".in").c_str(), "r", stdin);
+        freopen((name + ".out").c_str(), "w", stdout);
+    #endif
 }
