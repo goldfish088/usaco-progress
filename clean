@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+# need to have 'eval "$(direnv hook zsh)"' in ~/.zshrc, otherwise this will not work
+
+if [ -z "$1" ]; then
+echo "Usage: clean <problem_name>"
+return 1
+fi
+
+if [ ! -d "src/$1" ]; then
+echo "\"$1\" does not exist"
+return 1
+fi
+
+if [ ! -f "src/$1/sol" ]; then
+echo "\"$1\" is already clean"
+return 0
+fi
+
+rm -r "src/$1/sol" || exit 1
+echo "Cleaned \"$1\""
