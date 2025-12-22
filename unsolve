@@ -2,14 +2,14 @@
 # need to have 'eval "$(direnv hook zsh)"' in ~/.zshrc, otherwise this will not work
 
 if [ -z "$1" ]; then
-echo "Usage: solve <output_folder>"
+echo "Usage: unsolve <output_folder>"
 return 1
 fi
 
-if [ ! -d "copyme" ]; then
-echo "Error: copyme folder not found"
+if [ ! -d "src/$1" ]; then
+echo "Error: \"$1\" does not exist"
 return 1
 fi
 
-cp -r copyme "src/$1"
-echo "Created \"$1\""
+rm -r "src/$1" || exit 1
+echo "Removed \"$1\""
