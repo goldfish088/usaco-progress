@@ -52,7 +52,7 @@ void all_permutations(void) {
 
 // O(n) space, where n == actual.size() == expected.size()
 
-void solve(string& actual, string& expected) {
+tuple<int, int> solve(string& actual, string& expected) {
     int a = 0;
     int b = 0;
 
@@ -60,27 +60,24 @@ void solve(string& actual, string& expected) {
     vector<int> prev(n, -1);
 
     for (int i = 0; i < n; ++i) {
-        int actual_digit = actual[i] - '0';
-        int expected_digit = expected[i] - '0';
-
         if (actual[i] == expected[i]) {
             a++;
         } else {
-            if (prev[actual_digit-1] == -1) {
-                prev[actual_digit-1] = i;
+            if (prev[actual[i] - '1'] == -1) {
+                prev[actual[i] - '1'] = i;
             } else {
                 b++;
             }
 
-            if (prev[expected_digit-1] == -1) {
-                prev[expected_digit-1] = i;
+            if (prev[expected[i] - '1'] == -1) {
+                prev[expected[i] - '1'] = i;
             } else {
                 b++;
             }
         }
     }
 
-    cout << a << 'A' << b << 'B' << '\n';
+    return {a, b};
 }
 
 int main(void) {
@@ -98,7 +95,8 @@ int main(void) {
         auto actual = all[permute_index][i];
         auto expected = all[permute_index][j];
 
-        solve(actual, expected);
+        auto [a, b] = solve(actual, expected);
+        cout << a << 'A' << b << 'B' << '\n';
     }
 }
 
