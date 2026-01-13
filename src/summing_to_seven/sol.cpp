@@ -18,13 +18,14 @@ int main(void) {
     }
 
     int ans = 0;
-    map<int, int> seen;
-    seen[0] = 0;
+    array<int, 7> mod_seen{};
+
     for (int i = 1; i < n+1; ++i) {
-        if (seen.find(prefix[i]) != seen.end()) {
-            ans = max(ans, i - seen[prefix[i]]);
+        // 0 is sentinel, since we are using 1-indexing
+        if (mod_seen[prefix[i]] != 0) {
+            ans = max(ans, i - mod_seen[prefix[i]]);
         } else {
-            seen[prefix[i]] = i;
+            mod_seen[prefix[i]] = i;
         }
     }
 
